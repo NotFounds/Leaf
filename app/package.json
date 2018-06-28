@@ -1,0 +1,35 @@
+{
+    "name": "react-skeleton",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "babel": {
+        "presets": [
+            "env",
+            "react",
+            "stage-2"
+        ]
+    },
+    "scripts": {
+        "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+        "build": "webpack --config ./webpack.config.js && cp ./dist/bundle.js ../public/javascripts/bundle.js"
+    },
+    "devDependencies": {
+        "babel-core": "^6.26.3",
+        "babel-loader": "^7.1.4",
+        "babel-preset-env": "^1.7.0",
+        "babel-preset-react": "^6.24.1",
+        "babel-preset-stage-2": "^6.24.1",
+        "react-hot-loader": "^4.3.3",
+        "webpack": "^4.12.2",
+        "webpack-cli": "^3.0.8",
+        "webpack-dev-server": "^3.1.4"
+    },
+    "dependencies": {
+        "axios": "^0.18.0",
+        "react": "^16.4.1",
+        "react-dom": "^16.4.1",
+        "react-redux": "^5.0.7",
+        "redux": "^4.0.0"
+    }
+}
