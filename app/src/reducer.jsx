@@ -1,7 +1,14 @@
-import { SNACK_MESSAGE, SNACK_CLOSE, FETCH_MESSAGES, FETCH_MESSAGES_SUCCESS, NEW_ENQUETE, DEL_ENQUETE, EDIT_ENQUETE } from './actions';
+import {
+  SNACK_MESSAGE,
+  SNACK_CLOSE,
+  NEW_ENQUETE,
+  DEL_ENQUETE,
+  EDIT_ENQUETE,
+  SEND_ENQUETE,
+  SEND_SUCCESS
+} from './actions';
 
 const initialState = {
-  messages: ['aaa', 'bbb'],
   isFetching: false,
   questions: [
     {
@@ -19,15 +26,16 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   switch(action.type) {
-    case FETCH_MESSAGES:
+    case SEND_ENQUETE:
       return Object.assign({}, state, {
-        isFetching: true
+        isFetching: true,
       });
 
-    case FETCH_MESSAGES_SUCCESS:
+    case SEND_SUCCESS:
       return Object.assign({}, state, {
+        snackMessage: action.payload,
+        isSnack: true,
         isFetching: false,
-        messages: action.payload
       });
 
     case SNACK_MESSAGE:
