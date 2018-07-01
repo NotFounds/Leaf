@@ -1,26 +1,57 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var Messages = require('../models').Messages;
+var Enquete = require('../models').Enquete;
+var Answer  = require('../models').Answer;
 
-router.get('/messages', function(req, res, next) {
-  Messages.find().lean().exec((err, docs) => {
+router.get('/enquete', function(req, res, next) {
+  Enquete.findOne({ key: req.query.key }).lean().exec((err, docs) => {
     if (err) {
       res.send(err);
       return;
     }
-    res.json(message);
-  })
+    res.json(docs);
+  });
 });
 
-router.post('/message', function(req, res, next) {
-  var messages = new Messages();
-  messages.text = req.body.text;
-  messages.save((err) => {
-    if (err) console.log('Registration faild.');
-  　if (err) throw err;
+router.post('/enquete', function(req, res, next) {
+  Enquete.findOne({ key: req.body.key }).lean().exec((err, docs) => {
+    if (err) {
+      res.send(err);
+      return;
+    }
+    if (docs) {
+      res.send('Faild');
+    } else {
+      var enquete = new Enquete();
+      enquete.title     = req.body.title;
+      enquete.key       = req.body.key;
+      enquete.questions = req.body.questions;
+      enquete.save((err) => {
+        if (err) {
+          console.log('Registration faild.');
+          res.send(err);
+          return;
+        }
+        res.send('Success');
+      });
+    }
   });
-  res.send('Success');
+});
+
+router.post('/answer', function(req, res, next) {
+  console.log(req.body);
+  var answer = new Answer();
+  answer.meta.key = req.body.answer.meta.key;
+  answer.answers = req.body.answer.answers.slice(0).map(x => (Array.isArray(x) ? x.join(',') : x));
+  answer.save((err) => {
+    if (err) {
+      console.log('Registration faild.');
+      res.send(err);
+      return;
+    }
+    res.send('Success');
+  });
 });
 
 module.exports = router;
