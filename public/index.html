@@ -1,10 +1,79 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>The Minimal React Webpack Babel Set</title>
+        <title>Leaf</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     </head>
-    <body>
-        <div id="app"></div>
-        <script src="javascripts/bundle.js"></script>
+    <body style="background-color: #FAFAFA">
+        <style>
+.layout-transparent {
+  background: url('images/image.jpg') center / cover;
+}
+        </style>
+        <div class="layout-transparent mdl-layout mdl-js-layout">
+            <header class="mdl-layout__header mdl-layout__header--transparent">
+                <div class="mdl-layout__header-row">
+                    <!-- Title -->
+                    <span class="mdl-layout-title">Leaf</span>
+                    <!-- Add spacer, to align navigation to the right -->
+                    <div class="mdl-layout-spacer"></div>
+                    <!-- Navigation -->
+                    <nav class="mdl-navigation">
+                        <a class="mdl-navigation__link" href="/master.html">Master</a>
+                        <a class="mdl-navigation__link" href="/player.html">Player</a>
+                    </nav>
+                </div>
+            </header>
+            <main class="mdl-layout__content">
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--2-col"></div>
+                <div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">Master</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        You can make a enquete Easily and Speedy.
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a
+                         class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
+                         href="/master.html"
+                         >
+                         Make a Enquete
+                        </a>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">Player</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        You can answer a enquete Easily and Speedy.
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a
+                         class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
+                         href="/player.html"
+                         >
+                         Answer a Enquete
+                        </a>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-cell--2-col"></div>
+            </div>
+            <footer id="footer" class="mdl-mini-footer">
+                <div class="mdl-mini-footer__left-section">
+                    <div class="mdl-logo">Leaf</div>
+                    <ul class="mdl-mini-footer__link-list">
+                        <li><a href="www.github.com/NotFounds/Leaf">GitHub</a></li>
+                        <li><a href="https://www.freepik.com/free-photo/wooden-board-empty-table-in-front-of-blurred-background-perspective-brown-wood-over-blur-trees-in-forest-can-be-used-mock-up-for-display-or-montage-your-products-spring-season-vintage-filtered_1381282.htm">Background image: Designed by Freepik</a></li>
+                    </ul>
+                </div>
+            </footer>
+            </main>
+        </div>
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        <script type="text/javascript" src="javascripts/footerFixed.js"></script>
     </body>
 </html>

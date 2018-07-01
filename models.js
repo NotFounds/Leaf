@@ -10,10 +10,20 @@ db.on('connected', () => {
     console.log('mongoose URI locates ' + dbUrl);
 });
 
-var messagesSchema = new Schema({
-  text: String
+var questionSchema = new Schema({
+  title: String,
+  type: String,
+  required: Boolean,
+  description: String,
+  items: [String],
+  id: String
 });
-mongoose.model('messages', messagesSchema);
-const Messages = mongoose.model('messages');
+var enqueteSchema = new Schema({
+  title: String,
+  key: String,
+  questions: [questionSchema]
+});
+mongoose.model('enquete', enqueteSchema);
+const Enquete = mongoose.model('enquete');
 
-module.exports = { Messages: Messages };
+module.exports = { Enquete: Enquete };
