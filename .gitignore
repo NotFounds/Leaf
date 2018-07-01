@@ -1,7 +1,8 @@
 # gitignore
 
 node_modules
-/app/dist/bundle.js
+/master/dist/master.js
+/player/dist/player.js
 
 # Only apps should have lockfiles
 yarn.lock
