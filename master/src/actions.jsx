@@ -10,13 +10,13 @@ export const SNACK_CLOSE   = 'SNACK_CLOSE';
 
 export function sendEnquete(title, key, questions) {
   return dispatch => {
-    dispatch(() => { type: SEND_ENQUETE });
+    dispatch({ type: SEND_ENQUETE });
     return axios.post('/api/enquete', {
       title: title,
       key: key,
       questions: questions
     }).then(response => {
-      dispatch(() => { return { type: SEND_SUCCESS, payload: response.data }});
+      dispatch({ type: SEND_SUCCESS, payload: response.data });
     }).catch(response => {
       console.log(response);
     });

@@ -23,7 +23,6 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 import ShortTextIcon from '@material-ui/icons/ShortText';
 import MultiTextIcon from '@material-ui/icons/FormatAlignLeft';
-import EmailIcon from '@material-ui/icons/Email';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 import RadioButtonIcon from '@material-ui/icons/RadioButtonChecked';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
@@ -141,12 +140,6 @@ class Enquete extends React.Component {
                 <VisibilityOffIcon />
               </ListItemIcon>
               <ListItemText primary="Password" />
-            </MenuItem>
-            <MenuItem value='email'>
-              <ListItemIcon>
-                <EmailIcon />
-              </ListItemIcon>
-              <ListItemText primary="Email" />
             </MenuItem>
             <MenuItem value='select'>
               <ListItemIcon>

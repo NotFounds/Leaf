@@ -26,4 +26,19 @@ var enqueteSchema = new Schema({
 mongoose.model('enquete', enqueteSchema);
 const Enquete = mongoose.model('enquete');
 
-module.exports = { Enquete: Enquete };
+var answerSchema = new Schema({
+  meta: {
+    key: String,
+    uid: String
+  },
+  answers: [
+    {
+      id: String,
+      value: String
+    }
+  ]
+});
+mongoose.model('answer', answerSchema);
+const Answer = mongoose.model('answer');
+
+module.exports = { Enquete: Enquete, Answer: Answer };
