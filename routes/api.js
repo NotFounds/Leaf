@@ -4,6 +4,16 @@ var mongoose = require('mongoose');
 var Enquete = require('../models').Enquete;
 var Answer  = require('../models').Answer;
 
+router.get('/result', function(req, res, next) {
+  Answer.find({ meta: { key: req.query.key } }).lean().exec((err, docs) => {
+    if (err) {
+      res.send(err);
+      return;
+    }
+    res.json(docs);
+  });
+});
+
 router.get('/enquete', function(req, res, next) {
   Enquete.findOne({ key: req.query.key }).lean().exec((err, docs) => {
     if (err) {
@@ -40,7 +50,6 @@ router.post('/enquete', function(req, res, next) {
 });
 
 router.post('/answer', function(req, res, next) {
-  console.log(req.body);
   var answer = new Answer();
   answer.meta.key = req.body.answer.meta.key;
   answer.answers = req.body.answer.answers.slice(0).map(x => (Array.isArray(x) ? x.join(',') : x));
